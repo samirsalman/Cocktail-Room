@@ -14,6 +14,7 @@ class CocktailAPI {
 
   Future<List<Cocktail>> searchDrink(String query,
       {List<String> filter}) async {
+    query = query.trim();
     List<Cocktail> all;
     if (query.length == 0 && filter.length == 0) {
       first = false;
@@ -50,7 +51,7 @@ class CocktailAPI {
       results.add(Cocktail.fromJsonFile(jsonFile['drinks'][i]));
     }
     print(results.length.toString());
-    allCocktails=results;
+    allCocktails = results;
     return results;
     /*
     } else {

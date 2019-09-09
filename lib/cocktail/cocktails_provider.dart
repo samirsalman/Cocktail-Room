@@ -28,6 +28,18 @@ class CocktailsProvider with ChangeNotifier {
   List<Cocktail> allCocktail = List();
   List<Cocktail> temp = List();
   Map<String, int> typePosition = Map();
+  int clickBeforeAds = 2;
+
+  void decreaseClickBeforeAds() {
+    clickBeforeAds--;
+    print(clickBeforeAds);
+    notifyListeners();
+  }
+
+  void resetClickBeforeAds() {
+    clickBeforeAds = 3;
+    notifyListeners();
+  }
 
   CocktailsProvider(context) {
     api = CocktailAPI(context);
@@ -43,14 +55,7 @@ class CocktailsProvider with ChangeNotifier {
       cocktailsList = api.allCocktails.sublist(0, 50);
       notifyListeners();
     } else {
-      for (int j = 0; j < removedByFilter.length; j++) {
-        if (removedByFilter[j].type == element) {
-          cocktailsList.add(removedByFilter[j]);
-          removedByFilter.removeAt(j);
-          print(removedByFilter[j]);
-        }
-      }
-      notifyListeners();
+      actionFilter();
     }
   }
 
@@ -60,6 +65,10 @@ class CocktailsProvider with ChangeNotifier {
     typePosition[element] = where;
     types.remove(element);
     notifyListeners();
+    actionFilter();
+  }
+
+  void actionFilter() {
     cocktailsList.clear();
     for (int j = 0; j < api.allCocktails.length; j++) {
       if (filter.contains(api.allCocktails[j].type.toString())) {
@@ -75,7 +84,7 @@ class CocktailsProvider with ChangeNotifier {
   }
 
   Future<List<String>> getAllTypes(context) async {
-    if (types.length == 0) {
+    if (types.length == 0 && filter.length == 0) {
       String typeList =
           await DefaultAssetBundle.of(context).loadString("assets/types.json");
       print(typeList);

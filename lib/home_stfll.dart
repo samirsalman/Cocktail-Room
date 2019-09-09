@@ -220,6 +220,7 @@ class _HomeSState extends State<HomeS> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
+                  cocktailsProvider.decreaseClickBeforeAds();
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => CocktailItem(cocktails[index])));
                 },

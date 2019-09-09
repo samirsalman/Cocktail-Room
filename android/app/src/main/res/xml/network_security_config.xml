@@ -1,12 +1,8 @@
 <network-security-config>
-    <base-config cleartextTrafficPermitted="true">
-        <trust-anchors>
-            <certificates src="system" />
-        </trust-anchors>
-    </base-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">127.0.0.1</domain>
     </domain-config>
+
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">https://www.thecocktaildb.com</domain>
     </domain-config>

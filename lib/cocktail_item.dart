@@ -1,9 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:facebook_audience_network/ad/ad_banner.dart';
+import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'ads_page.dart';
 import 'cache.dart';
 import 'cocktail/cocktail.dart';
+import 'cocktail/cocktails_provider.dart';
 import 'favorite_component.dart';
 import 'fonts/fonts_settings.dart';
 import 'package:http/http.dart' as http;
@@ -35,6 +39,12 @@ class _CocktailItemState extends State<CocktailItem> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
+    var cp = Provider.of<CocktailsProvider>(context);
+
+    if (cp.clickBeforeAds == 0) {
+
+      return AdsPage();
+    }
     if (load) {
       return Scaffold(
           appBar: AppBar(
@@ -53,7 +63,6 @@ class _CocktailItemState extends State<CocktailItem> {
           ),
           body: Center(child: CircularProgressIndicator()));
     }
-
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -189,6 +198,7 @@ class _CocktailItemState extends State<CocktailItem> {
   void initState() {
     item = widget.cocktail;
     createItem(item);
+
     super.initState();
   }
 

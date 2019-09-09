@@ -98,6 +98,8 @@ class Favorites extends StatelessWidget {
               var size = MediaQuery.of(context).size;
               return GestureDetector(
                 onTap: () {
+                  cocktailsProvider.decreaseClickBeforeAds();
+
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => CocktailItem(cocktails[index])));
                 },

@@ -159,6 +159,7 @@ class CurrentPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).buttonColor,
         onPressed: () {
+          cocktailProvider.decreaseClickBeforeAds();
           cocktailProvider.randomCocktail().then((value) {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => CocktailItem(value)));
