@@ -28,7 +28,7 @@ class CocktailsProvider with ChangeNotifier {
   List<Cocktail> allCocktail = List();
   List<Cocktail> temp = List();
   Map<String, int> typePosition = Map();
-  int clickBeforeAds = 2;
+  int clickBeforeAds = 1;
 
   void decreaseClickBeforeAds() {
     clickBeforeAds--;
