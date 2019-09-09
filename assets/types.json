@@ -1,0 +1,37 @@
+{
+    "types": [
+        {
+            "type": "Cocktail"
+        },
+        {
+            "type": "Drink da Aperitivo"
+        },
+        {
+            "type": "Drink da Sera"
+        },
+        {
+            "type": "Latte e Frullati"
+        },
+        {
+            "type": "Altro"
+        },
+        {
+            "type": "Cacao"
+        },
+        {
+            "type": "Shot"
+        },
+        {
+            "type": "Caffè/The"
+        },
+        {
+            "type": "Liquori caserecci"
+        },
+        {
+            "type": "Birre"
+        },
+        {
+            "type": "Soft Drink / Analcolici"
+        }
+    ]
+}
