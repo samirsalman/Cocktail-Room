@@ -81,13 +81,27 @@ class Favorites extends StatelessWidget {
           margin: EdgeInsets.all(24),
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 16.0),
-          child: FacebookBannerAd(
-            placementId: "422662708456327_422676801788251",
-            bannerSize: BannerSize.STANDARD,
-            keepAlive: true,
-          ),
-        ),
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: FacebookBannerAd(
+                placementId: "422662708456327_422663381789593",
+                bannerSize: BannerSize.STANDARD,
+                keepAlive: true,
+                listener: (result, value) {
+                  switch (result) {
+                    case BannerAdResult.ERROR:
+                      print("Error: $value");
+                      break;
+                    case BannerAdResult.LOADED:
+                      print("Loaded: $value");
+                      break;
+                    case BannerAdResult.CLICKED:
+                      print("Clicked: $value");
+                      break;
+                    case BannerAdResult.LOGGING_IMPRESSION:
+                      print("Logging Impression: $value");
+                      break;
+                  }
+                })),
         GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 1 / 1.25),

@@ -31,6 +31,7 @@ class _AdsPageState extends State<AdsPage> {
           cp.resetClickBeforeAds();
         }
 
+
         /// Once a Rewarded Ad has been closed and becomes invalidated,
         /// load a fresh Ad by calling this function.
         if (result == RewardedVideoAdResult.VIDEO_CLOSED) {

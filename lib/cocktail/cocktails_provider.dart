@@ -31,6 +31,9 @@ class CocktailsProvider with ChangeNotifier {
   int clickBeforeAds = 1;
 
   void decreaseClickBeforeAds() {
+    if(clickBeforeAds<0){
+      resetClickBeforeAds();
+    }
     clickBeforeAds--;
     print(clickBeforeAds);
     notifyListeners();
@@ -130,10 +133,25 @@ class CocktailsProvider with ChangeNotifier {
   Widget banner = Padding(
     padding: const EdgeInsets.only(bottom: 16.0),
     child: FacebookBannerAd(
-      placementId: "422662708456327_422676801788251",
-      bannerSize: BannerSize.STANDARD,
-      keepAlive: false,
-    ),
+        placementId: "422662708456327_422663381789593",
+        bannerSize: BannerSize.STANDARD,
+        keepAlive: true,
+        listener: (result, value) {
+          switch (result) {
+            case BannerAdResult.ERROR:
+              print("Error: $value");
+              break;
+            case BannerAdResult.LOADED:
+              print("Loaded: $value");
+              break;
+            case BannerAdResult.CLICKED:
+              print("Clicked: $value");
+              break;
+            case BannerAdResult.LOGGING_IMPRESSION:
+              print("Logging Impression: $value");
+              break;
+          }
+        }),
   );
 
   Future<dynamic> translate(quote) async {

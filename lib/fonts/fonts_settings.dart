@@ -19,4 +19,8 @@ class Fonts {
       TextStyle(fontFamily: "LexendPeta", fontSize: 8, color: Colors.black);
   static final TextStyle pW =
       TextStyle(fontFamily: "LexendPeta", fontSize: 8, color: Colors.white);
+  static final TextStyle pB =
+      TextStyle(fontFamily: "LexendPeta", fontSize: 12, color: Colors.black);
+  static final TextStyle pBW =
+      TextStyle(fontFamily: "LexendPeta", fontSize: 12, color: Colors.white);
 }

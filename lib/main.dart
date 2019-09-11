@@ -8,8 +8,7 @@ import 'cocktail_item.dart';
 import 'fonts/fonts_settings.dart';
 
 void main() {
-  FacebookAudienceNetwork.init(
-          testingId: "ae537705-3919-4f54-864d-8334cc778ed8")
+  FacebookAudienceNetwork.init()
       .then((value) {
     runApp(MyApp());
   });

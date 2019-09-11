@@ -42,8 +42,19 @@ class _CocktailItemState extends State<CocktailItem> {
     var cp = Provider.of<CocktailsProvider>(context);
 
     if (cp.clickBeforeAds == 0) {
-
-      return AdsPage();
+      FacebookInterstitialAd.loadInterstitialAd(
+        placementId: "422662708456327_426271244762140",
+        listener: (result, value) {
+          if (result == InterstitialAdResult.LOADED)
+            FacebookInterstitialAd.showInterstitialAd(delay: 0);
+          if (result == InterstitialAdResult.DISPLAYED) {
+            cp.resetClickBeforeAds();
+          }
+          if (result == InterstitialAdResult.ERROR) {
+            print(result);
+          }
+        },
+      );
     }
     if (load) {
       return Scaffold(
@@ -169,7 +180,7 @@ class _CocktailItemState extends State<CocktailItem> {
                                               "Ingredients : ",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .display1,
+                                                  .body1,
                                             ),
                                           ],
                                         ),
@@ -240,12 +251,12 @@ class _CocktailItemState extends State<CocktailItem> {
             children: <Widget>[
               Text(
                 e,
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.body1,
               ),
               Text(
                 convertedQty[i],
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.body1,
               ),
             ],
           ),
@@ -336,11 +347,11 @@ class _CocktailItemState extends State<CocktailItem> {
               ),
               Text(
                 name + " : ",
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.body1,
               ),
               Text(
                 data,
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.body1,
               )
             ],
           ),
@@ -366,7 +377,7 @@ class _CocktailItemState extends State<CocktailItem> {
                   ),
                   Text(
                     name + " : ",
-                    style: Theme.of(context).textTheme.display1,
+                    style: Theme.of(context).textTheme.body1,
                   ),
                 ],
               ),
@@ -379,7 +390,7 @@ class _CocktailItemState extends State<CocktailItem> {
                   Expanded(
                       child: Text(
                     data,
-                    style: Theme.of(context).textTheme.display1,
+                    style: Theme.of(context).textTheme.body1,
                   ))
                 ],
               ),
