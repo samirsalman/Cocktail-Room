@@ -1,6 +1,5 @@
 # CocktailRoom
-
-A funny Flutter Application to search, save and know Cocktails and Drinks. Every Drink have all recipes and instructions to make it.
+This is my first Flutter Project, a funny Application to search, save and know Cocktails and Drinks. Every Drink have all recipes and instructions to make it.
 Cocktail Room is on Play Store. Not already on AppStore.
 
 # ScreenShot
