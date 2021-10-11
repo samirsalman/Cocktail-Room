@@ -1,6 +1,6 @@
 # CocktailRoom
-This is my first Flutter Project, a funny Application to search, save and know Cocktails and Drinks. Every Drink have all recipes and instructions to make it.
-Cocktail Room is on Play Store. Not already on AppStore.
+This is my first Flutter Project, a funny Application to search, save and discover Cocktails and Drinks. Every Drink have all recipes and instructions to make it.
+Cocktail Room is on **Play Store**.
 
 # ScreenShot
 
@@ -13,7 +13,7 @@ Cocktail Room is on Play Store. Not already on AppStore.
 
 # Technologies
 
-I've used Flutter to make this app, for state menagement I used Provider Pattern for the first time (I'm shure I did a lot of errors for this). 
+I've used Flutter to make this app, for state menagement I used Provider Pattern for the first time. 
 
 # Link
 
